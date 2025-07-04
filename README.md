@@ -4,6 +4,8 @@ A NestJS-based bidding system API that allows users to create collections, place
 
 > **Frontend Documentation**: See the frontend README in the `bidding-system` folder for client application setup and features.
 
+![image](https://github.com/user-attachments/assets/23e058c8-eeae-4592-ac4e-8b2f30669c7d)
+
 ## Quick Start
 
 ### Prerequisites
