@@ -1,5 +1,7 @@
 # Luxor Bidding System - Frontend
 
+<img width="1501" alt="image" src="https://github.com/user-attachments/assets/8cb179ce-2461-4769-9c7a-8265a2cb88c6" />
+
 A Next.js frontend application for the Luxor bidding system, providing a user-friendly interface for managing collections and bids.
 
 > **Backend Documentation**: See the backend README in the `frontend-coding-challenge` folder for API setup and documentation.
