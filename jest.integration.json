@@ -1,0 +1,28 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "rootDir": ".",
+  "testMatch": [
+    "<rootDir>/test/integration/**/*.spec.ts"
+  ],
+  "setupFilesAfterEnv": ["<rootDir>/test/setup.ts"],
+  "moduleNameMapping": {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!src/**/*.spec.ts",
+    "!src/**/*.e2e-spec.ts",
+    "!src/main.ts",
+    "!src/**/*.module.ts",
+    "!src/**/*.dto.ts",
+    "!src/**/*.interface.ts",
+    "!src/**/*.enum.ts"
+  ],
+  "coverageDirectory": "coverage/integration",
+  "coverageReporters": ["html", "text", "lcov"],
+  "testTimeout": 30000,
+  "maxWorkers": 1,
+  "verbose": true,
+  "displayName": "Integration Tests"
+}

@@ -1,0 +1,33 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "rootDir": ".",
+  "testMatch": [
+    "<rootDir>/test/**/*.spec.ts",
+    "<rootDir>/test/**/*.e2e-spec.ts"
+  ],
+  "setupFilesAfterEnv": ["<rootDir>/test/setup.ts"],
+  "moduleNameMapping": {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!src/**/*.spec.ts",
+    "!src/**/*.e2e-spec.ts",
+    "!src/main.ts",
+    "!src/**/*.module.ts",
+    "!src/**/*.dto.ts",
+    "!src/**/*.interface.ts",
+    "!src/**/*.enum.ts"
+  ],
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["html", "text", "lcov"],
+  "testTimeout": 30000,
+  "maxWorkers": 1,
+  "verbose": true,
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "transformIgnorePatterns": ["node_modules/(?!(.*\\.mjs$))"]
+}
