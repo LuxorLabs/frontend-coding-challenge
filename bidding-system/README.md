@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Luxor Bidding System - Frontend
 
-## Getting Started
+A Next.js frontend application for the Luxor bidding system, providing a user-friendly interface for managing collections and bids.
 
-First, run the development server:
+> **Backend Documentation**: See the backend README in the `frontend-coding-challenge` folder for API setup and documentation.
 
+## Quick Start
+
+### Prerequisites
+- Node.js (v18 or higher)
+- Backend API running on `http://localhost:3000`
+
+### Installation & Setup
+
+1. **Install dependencies**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Environment Configuration**
+```bash
+cp .env.example .env.local
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Edit `.env.local`:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Start Development Server**
+```bash
+npm run dev
+```
 
-## Learn More
+Application will be available at `http://localhost:3001`
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔐 Authentication
+- User login and registration
+- JWT token management
+- Protected routes
+- Automatic logout on token expiration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📦 Collections Marketplace
+- Browse all collections with pagination (10 per page)
+- View collection details with bid history
+- Create new collections
+- Edit/delete own collections
+- Real-time bid counts
 
-## Deploy on Vercel
+### 💰 Bidding System
+- Place bids on collections
+- Edit pending bids
+- Cancel own bids
+- Accept/reject bids on own collections
+- Automatic UI updates (optimistic updates)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🎨 User Interface
+- Responsive design (mobile-friendly)
+- Clean, modern interface
+- Loading states and error handling
+- Form validation
+- Pagination controls
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+
+- **Framework**: Next.js 14 with TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: React Context API
+- **Authentication**: JWT token management
+- **HTTP Client**: Fetch API
+- **Form Handling**: React hooks
+- **UI Components**: Custom component library
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+├── common/
+│   ├── context/           # React contexts (auth, user)
+│   ├── hooks/             # Custom hooks
+│   └── models/            # TypeScript interfaces
+├── components/            # Reusable UI components
+│   ├── collectionSection.tsx
+│   ├── bidModal.tsx
+│   ├── pagination.tsx
+│   └── ...
+└── styles/               # Global styles
+```
+
+## Key Components
+
+### Authentication Flow
+- **AuthContext**: Manages authentication state and JWT tokens
+- **UserContext**: Handles user profile data
+- **AuthWrapper**: Redirects unauthenticated users
+
+### Collection Management
+- **CollectionSection**: Displays collection with bids
+- **CollectionModal**: Create/edit collection form
+- **Pagination**: Frontend pagination (10 items per page)
+
+### Bid Management
+- **BidModal**: Create/edit bid form
+- **BidItem**: Individual bid display
+- Optimistic updates for better UX
+
+## Available Scripts
+
+```bash
+# Development
+npm run dev              # Start development server
+npm run build            # Build for production
+npm run start            # Start production server
+
+# Code Quality
+npm run lint             # Run ESLint
+npm run type-check       # TypeScript type checking
+```
+
+## User Experience Features
+
+### Optimistic Updates
+- Instant UI feedback when creating/updating bids
+- Automatic rollback on API errors
+- No page refreshes required
+
+### Frontend Pagination
+- Client-side pagination for fast navigation
+- Shows 10 collections per page
+- Maintains state across page changes
+
+### Error Handling
+- User-friendly error messages
+- Network error handling
+- Form validation feedback
+
+### Responsive Design
+- Mobile-first approach
+- Tablet and desktop optimized
+- Touch-friendly interfaces
+
+## Authentication Flow
+
+1. User logs in → JWT token stored in localStorage
+2. Token included in all API requests via Authorization header
+3. Protected routes check authentication status
+4. Automatic redirect to login on token expiration
+
+## Current Limitations & Future Improvements
+
+### Current State
+- ✅ Complete authentication flow
+- ✅ Full collection and bid management
+- ✅ Responsive design
+- ✅ Client-side pagination
+- ✅ Optimistic updates
+
+### Planned Enhancements
+- 🔄 **Phase 1**: Advanced search and filtering, design system, admin dashboard
+- 🔄 **Phase 2**: Real-time updates (WebSocket), push notifications, image upload
+- 🔄 **Phase 3**: Advanced analytics, user preferences, dark mode
+
+## API Integration
+
+The frontend communicates with the backend API using:
+- **Base URL**: `http://localhost:3000` (configurable via env)
+- **Authentication**: Bearer token in Authorization header
+- **Error Handling**: Comprehensive error response handling
+- **Request Logging**: Console logging for development
+
+## Development Notes
+
+- Uses TypeScript for type safety
+- Implements React best practices (hooks, context)
+- Tailwind CSS for consistent styling
+- Custom hooks for API calls and state management
+- Optimistic updates for better user experience
+
+## Testing Credentials
+
+Use these credentials to test the application:
+- **Email**: `user1@example.com` (or user2, user3, etc.)
+- **Password**: `password123`
+
+## License
+
+This project is for educational/challenge purposes.
